@@ -12,12 +12,14 @@ describe('property attack getter/setter', () => {
     const daemon = new Daemon('Daemon');
     daemon.attack = 100;
     expect(daemon.attack).toBe(90);
+    expect(daemon.attack).toBe(90);
   });
 
   test('not linear dependence of attack level', () => {
     const norman2 = new Magician('Norman');
     norman2.stoned = true;
     norman2.attack = 100;
+    expect(norman2.attack).toBe(85);
     expect(norman2.attack).toBe(85);
   });
 });
