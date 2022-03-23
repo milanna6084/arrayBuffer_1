@@ -10,13 +10,11 @@ export default class MathCharacter extends Character {
   }
 
   get attack() {
-    if (this.cell > 10) {
-      this.s_attack = 0;
-    } else {
-      const lineDepend = Math.round(this.s_attack * (1.1 - 0.1 * this.cell));
-      this.s_attack = (!this.stoned) ? lineDepend : lineDepend - Math.log2(this.cell) * 5;
-    }
-    return this.s_attack;
+    if (this.cell > 10) return 0;
+
+    const lineDepend = Math.round(this.s_attack * (1.1 - 0.1 * this.cell));
+
+    return (!this.stoned) ? lineDepend : (lineDepend - Math.log2(this.cell) * 5);
   }
 
   set attack(value) {
